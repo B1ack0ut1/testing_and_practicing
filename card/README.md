@@ -1,0 +1,1 @@
+Closely followed the example demonstrated in video: https://www.youtube.com/watch?v=er1JEDuPbZQ. The video introduces BEM methodology.
