@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms Demo</title>
+  </head>
+  <body>
+    <h1>Forms Demo</h1>
+
+    <form action="">
+      <input type="text" placeholder="Enter a username" />
+      <input type="password" placeholder="Enter a password" />
+      <input type="color" />
+      <!-- Can use CSS to change number input field size -->
+      <input
+        type="number"
+        placeholder="Enter a number"
+        min="1"
+        max="100000"
+        step="2"
+      />
+    </form>
+    <hr />
+    <form action="/random">
+      <section>
+        <div>
+          <input type="checkbox" name="cheese" id="cheese" />
+          <label for="cheese">I like cheese</label>
+        </div>
+        <div>
+          <input type="checkbox" name="ham" id="ham" checked />
+          <label for="ham">I like ham</label>
+        </div>
+      </section>
+      <section>
+        <div>
+          <input type="radio" name="Size" id="Small" value="Small" />
+          <label for="Small">Small</label>
+        </div>
+        <div>
+          <input type="radio" name="Size" id="Medium" value="Medium" />
+          <label for="Medium">Medium</label>
+        </div>
+        <div>
+          <input type="radio" name="Size" id="Large" value="Large" />
+          <label for="Large">Large</label>
+        </div>
+      </section>
+      <section>
+        <label for="meal">Please select an entree:</label>
+        <select name="meal" id="meal">
+          <option value="">--Please choose an option--</option>
+          <option value="fish">Fish</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="steak" selected>Steak</option>
+        </select>
+      </section>
+      <section>
+        <label for="cheese-amount">Amount of cheese:</label>
+        <input
+          type="range"
+          name="cheese-amount"
+          id="cheese-amount"
+          min="1"
+          max="10"
+          value="7"
+        />
+      </section>
+      <section>
+        <label for="requests">Special requests:</label>
+        <div>
+          <textarea
+            name="requests"
+            id="requests"
+            rows="8"
+            cols="40"
+            placeholder="Give special requests here..."
+          ></textarea>
+        </div>
+      </section>
+      <button>Submit</button>
+    </form>
+    <hr />
+    <!-- Search reddit-->
+    <form action="https://www.reddit.com/search">
+      <input type="text" name="q" placeholder="Search Reddit" />
+      <button>Search Reddit</button>
+    </form>
+    <!-- Search google -->
+    <form action="https://www.google.com/search">
+      <input type="text" name="q" placeholder="Search Google" />
+      <button>Search Google</button>
+    </form>
+    <!-- Search -->
+    <form action="https://youtube.com/results">
+      <input type="text" name="search_query" placeholder="Search Youtube" />
+      <button>Search Youtube</button>
+    </form>
+    <hr />
+    <h2>Form Validations Demo</h2>
+    <form action="/dummy">
+      <div>
+        <label for="first">Enter First Name</label>
+        <input type="text" name="first" id="first" required />
+      </div>
+      <div>
+        <label for="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          minlength="5"
+          maxlength="20"
+          required
+        />
+      </div>
+      <!-- Email anad url type are equivalent to type="text" with a specified pattern attribute. Need to learn regex to use pattern-->
+      <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div>
+        <label for="url">URL</label>
+        <input type="url" name="url" id="url" required />
+      </div>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

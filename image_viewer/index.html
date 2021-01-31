@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Image Viewer</title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      id="preloaded-image"
+      rel="preload"
+      href="/images/loading.gif"
+      as="image"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="my-stylesheet.css"
+    />
+  </head>
+  <body>
+    <!-- Try to implement an HTML that looks like the reference example:
+        ./images/screenshot.png  -->
+    <h1 class="title">Image Viewer</h1>
+    <section class="image-viewer">
+      <img
+        id="back-button"
+        class="image-viewer__back-next"
+        src="/images/back.png"
+        alt="back-icon"
+      />
+      <div class="image-viewer__image-container">
+        <img
+          id="image"
+          class="image-viewer__image"
+          src="https://theinpaint.com/images/example-1-2.jpg"
+          alt="image"
+        />
+      </div>
+      <img
+        id="next-button"
+        class="image-viewer__back-next"
+        src="/images/next.png"
+        alt="next-icon"
+      />
+    </section>
+    <div class="source-container">
+      Source:
+      <a id="image-source" href="https://theinpaint.com/images/example-1-2.jpg"
+        >https://theinpaint.com/images/example-1-2.jpg</a
+      >
+    </div>
+    <!-- Please use the class names and IDs as defined in styles.css
+         so that the outlook can be the same as the reference. -->
+    <script src="my_main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Image Viewer</title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="preload" href="/images/loading.gif" as="image" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+  </head>
+  <body>
+	<div class="image-viewer__container">
+  <div class="image-viewer__title">Image Viewer</div>
+  <div class="image-viewer__main">
+    <button class="image-viewer__button" id="previous-button" disabled>
+      <img src="./images/back.png" id="previous" alt="previous" />
+    </button>
+    <div class="image-viewer__display">
+      <img id="display" />
+      <div class="imageviewer__displaysource-wrapper">
+        Source: <a id="source" target="_blank"></a>
+      </div>
+    </div>
+    <button class="image-viewer__button" id="next-button">
+      <img src="./images/next.png" id="next" alt="next" />
+    </button>
+  </div>
+</div>
+    <!-- Try to implement an HTML that looks like the reference example:
+        ./images/screenshot.png  -->
+    <!-- Please use the class names and IDs as defined in styles.css
+         so that the outlook can be the same as the reference. -->
+    <script src="main.js"></script>
+  </body>
+</html>

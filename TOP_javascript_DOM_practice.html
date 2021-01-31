@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Page Title</title>
+        <meta charset="UTF-8"/>
+
+    </head>
+    <body>
+        <h1>
+            THE TITLE OF YOUR WEBPAGE
+        </h1>
+        <div id="container"></div>
+        <!-- <button onclick="alert('Hello World')">Click Me</button>
+        <button id="btn">Click Me</button>
+        <button id="btn2">Click Me</button> -->
+        <button id="1">CLICK ME</button>
+        <button id="2">CLICK ME</button>
+        <button id="3">CLICK ME</button>
+        <script>
+            const container = document.querySelector('#container');
+
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = 'This is the glorious text-content!';
+
+            container.appendChild(content);
+
+            const p1 = document.createElement("p");
+            p1.textContent = "Hey I'm red!";
+            p1.style.color = "red";
+
+            container.appendChild(p1);
+
+            const h3 = document.createElement("h3");
+            h3.textContent = "I'm a blue h3!";
+            h3.style.color = "blue";
+
+            container.appendChild(h3);
+
+            const div2 = document.createElement("div");
+            div2.setAttribute("style", "border: 1px solid black; background-color: pink;");
+
+            const h1 = document.createElement("h1");
+            h1.textContent = "I'm in a div";
+
+            const p2 = document.createElement("p");
+            p2.textContent = "ME TOO!";
+
+            div2.appendChild(h1);
+            div2.appendChild(p2);
+
+            container.appendChild(div2);
+
+            // const btn = document.querySelector("#btn");
+            // btn.onclick = () => alert("Hello World");
+
+            // const btn2 = document.querySelector("#btn2");
+            // btn2.addEventListener("click", function (e) {
+            //     console.log(e);
+            //     console.log(e.target);
+            //     e.target.style.background = "blue";
+            // });
+
+            const buttons = document.querySelectorAll("button");
+
+            // Use the .forEach method to iterate through each button
+            buttons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    alert(button.id);
+                });
+            })
+        </script>
+    </body>
+</html>
