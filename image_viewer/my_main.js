@@ -5,6 +5,8 @@
 4. While an image is loading, the preloading image should be displayed
 */
 
+let imageIndex = 0;
+
 let images = [
   "https://theinpaint.com/images/example-1-2.jpg",
   "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg",
@@ -19,70 +21,45 @@ let images = [
   "http://wallpaperping.com/wp-content/uploads/2019/11/top-51-cool-desktop-wallpapers-hd-background-spot.jpg",
 ];
 
-function getImageAndImageSource() {
+function setImageAndImageSource(imageIndex) {
   const image = document.querySelector("#image");
   const imageSource = document.querySelector("#image-source");
-  return [image, imageSource];
-}
-
-function setImageAndImageSource(imageIndex, image, imageSource) {
+  image.src = "";
   image.src = `${images[imageIndex]}`;
   imageSource.href = `${images[imageIndex]}`;
   imageSource.textContent = `${images[imageIndex]}`;
-
-  return;
 }
 
-function prevImage(e) {
-  const [image, imageSource] = getImageAndImageSource();
+const showImage = (move) => () => {
+  if (move > 0) {
+    if (imageIndex === images.length - 1) {
+      return;
+    }
+    if (imageIndex === 0) {
+      backButton.disabled = false;
+    }
+    if (imageIndex + move >= images.length - 1) {
+      nextButton.disabled = true;
+    }
+  } else if (move < 0) {
+    if (imageIndex === 0) {
+      return;
+    }
+    if (imageIndex === images.length - 1) {
+      nextButton.disabled = false;
+    }
+    if (imageIndex + move <= 0) {
+      backButton.disabled = true;
+    }
+  }
 
-  // Retrieve index current image address in images array
-  let imageIndex = images.indexOf(image.src);
-
-  if (imageIndex === 0) {
-    return;
-  } else if (imageIndex === images.length - 1) {
-    nextButton.style.opacity = "1";
-  } // Consider where to put the else if condition
-
+  imageIndex = Math.max(Math.min(imageIndex + move, images.length - 1), 0);
   // Change image address of #image and #imageSource
-  imageIndex--;
-  setImageAndImageSource(imageIndex, image, imageSource);
+  setImageAndImageSource(imageIndex);
+};
 
-  // Dull back button image color if on first image
-  if (image.src === images[0]) {
-    e.target.style.opacity = "0.4";
-  }
+const backButton = document.getElementById("back-button");
+const nextButton = document.getElementById("next-button");
 
-  return;
-}
-
-function nextImage(e) {
-  const [image, imageSource] = getImageAndImageSource();
-
-  // Retrieve index current image address in images array
-  let imageIndex = images.indexOf(image.src);
-
-  if (imageIndex === images.length - 1) {
-    return;
-  } else if (imageIndex === 0) {
-    backButton.style.opacity = "1";
-  }
-
-  // Change image address of #image and #imageSource
-  imageIndex++;
-  setImageAndImageSource(imageIndex, image, imageSource);
-
-  // Dull next button image color if on last image
-  if (image.src === images[images.length - 1]) {
-    e.target.style.opacity = "0.4";
-  }
-
-  return;
-}
-
-const backButton = document.querySelector("#back-button");
-backButton.addEventListener("click", prevImage);
-
-const nextButton = document.querySelector("#next-button");
-nextButton.addEventListener("click", nextImage);
+backButton.addEventListener("click", showImage(-1));
+nextButton.addEventListener("click", showImage(1));

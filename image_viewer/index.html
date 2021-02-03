@@ -27,12 +27,9 @@
         ./images/screenshot.png  -->
     <h1 class="title">Image Viewer</h1>
     <section class="image-viewer">
-      <img
-        id="back-button"
-        class="image-viewer__back-next"
-        src="/images/back.png"
-        alt="back-icon"
-      />
+      <button id="back-button" class="image-viewer__back-next" disabled>
+        <img src="/images/back.png" alt="back-icon" class="button-img" />
+      </button>
       <div class="image-viewer__image-container">
         <img
           id="image"
@@ -41,16 +38,16 @@
           alt="image"
         />
       </div>
-      <img
-        id="next-button"
-        class="image-viewer__back-next"
-        src="/images/next.png"
-        alt="next-icon"
-      />
+      <button id="next-button" class="image-viewer__back-next">
+        <img src="/images/next.png" alt="next-icon" class="button-img" />
+      </button>
     </section>
     <div class="source-container">
       Source:
-      <a id="image-source" href="https://theinpaint.com/images/example-1-2.jpg"
+      <a
+        id="image-source"
+        href="https://theinpaint.com/images/example-1-2.jpg"
+        target="_blank"
         >https://theinpaint.com/images/example-1-2.jpg</a
       >
     </div>
