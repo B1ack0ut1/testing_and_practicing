@@ -22,12 +22,10 @@ let images = [
 ];
 
 function setImageAndImageSource(imageIndex) {
-  const image = document.querySelector("#image");
-  const imageSource = document.querySelector("#image-source");
-  image.src = "";
-  image.src = `${images[imageIndex]}`;
-  imageSource.href = `${images[imageIndex]}`;
-  imageSource.textContent = `${images[imageIndex]}`;
+  $("#image").prop("src", "");
+  $("#image").prop("src", `${images[imageIndex]}`);
+  $("#image-source").prop("href", `${images[imageIndex]}`);
+  $("#image-source").prop("text", `${images[imageIndex]}`);
 }
 
 const showImage = (move) => () => {
@@ -36,20 +34,20 @@ const showImage = (move) => () => {
       return;
     }
     if (imageIndex === 0) {
-      backButton.disabled = false;
+      $("#back-button").prop("disabled", false);
     }
     if (imageIndex + move >= images.length - 1) {
-      nextButton.disabled = true;
+      $("#next-button").prop("disabled", true);
     }
   } else if (move < 0) {
     if (imageIndex === 0) {
       return;
     }
     if (imageIndex === images.length - 1) {
-      nextButton.disabled = false;
+      $("#next-button").prop("disabled", false);
     }
     if (imageIndex + move <= 0) {
-      backButton.disabled = true;
+      $("#back-button").prop("disabled", true);
     }
   }
 
@@ -58,8 +56,5 @@ const showImage = (move) => () => {
   setImageAndImageSource(imageIndex);
 };
 
-const backButton = document.getElementById("back-button");
-const nextButton = document.getElementById("next-button");
-
-backButton.addEventListener("click", showImage(-1));
-nextButton.addEventListener("click", showImage(1));
+$("#back-button").click(showImage(-1));
+$("#next-button").click(showImage(1));

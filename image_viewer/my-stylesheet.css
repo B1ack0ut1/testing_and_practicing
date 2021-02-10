@@ -44,7 +44,7 @@
   text-align: center;
   display: flex;
   align-items: center;
-  background: transparent url("/images/loading.gif") no-repeat center;
+  background: transparent url("/images/loading.gif") no-repeat center/20%;
 }
 .image-viewer__image {
   max-width: 600px;

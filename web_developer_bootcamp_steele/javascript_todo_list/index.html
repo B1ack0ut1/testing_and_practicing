@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <ul>
+      <li>"new" - Add a Todo</li>
+      <li>"list" - List all Todos</li>
+      <li>"delete" - Remove specific Todo</li>
+      <li>"quit" - Quit App</li>
+    </ul>
+    <script>
+      $(() => {
+        let toDoList = [];
+        let validCommands = ["new", "list", "delete", "quit"];
+        let command;
+
+        toDoListLoop: {
+          while (true) {
+            command = prompt("What would you like to do?");
+
+            while (!validCommands.includes(command)) {
+              command = prompt("Please enter a valid command");
+            }
+
+            switch (command) {
+              case "new":
+                const newTask = prompt("Please enter new todo");
+                toDoList.push(newTask);
+                break;
+
+              case "list":
+                console.log("**************");
+                for (let i = 0; i < toDoList.length; i++) {
+                  console.log(`${i}: ${toDoList[i]}`);
+                }
+                console.log("**************");
+                break;
+
+              case "delete":
+                const taskToDelete = prompt(
+                  "Please enter specific todo to delete"
+                );
+
+                if (!toDoList.includes(taskToDelete)) {
+                  console.log("Specific todo does not exist in the list");
+                  break;
+                }
+                toDoList.splice(toDoList.indexOf("taskToDelete"), 1);
+                break;
+
+              case "quit":
+                console.log("Successfully quit the app");
+                break toDoListLoop;
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
